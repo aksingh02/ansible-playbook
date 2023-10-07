@@ -1,7 +1,7 @@
 ---
 - name: Deploy Docker container
   hosts: ansible_client
-  become: true
+  # become: true
   tasks:
   - name: pull an image
     docker_image:
