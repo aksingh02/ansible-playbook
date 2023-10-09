@@ -14,7 +14,7 @@
   - name: Run nginx Docker container
     docker_container:
       name: nginx
-      image: nginx
+      image: aks0207/ansible-nginx:12
       state: started
       ports:
         - "8000:80"
