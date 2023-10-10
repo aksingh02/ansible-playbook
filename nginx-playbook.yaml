@@ -9,8 +9,8 @@
   tasks:
   - name: pull an image
     docker_image:
-      name: nginx
-      source: pull
+      name: "{{ docker_image_name }}:{{ docker_image_tag }}"
+      state: present
   - name: Create volume
     docker_volume:
       name: nginx-data
