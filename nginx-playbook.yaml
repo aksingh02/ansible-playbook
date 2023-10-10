@@ -18,7 +18,7 @@
   - name: Run nginx Docker container
     docker_container:
       name: nginx
-      image: aks0207/ansible-nginx:"{{ jenkins_build_number }}"
+      image: "{{ docker_image_name }}:{{ jenkins_build_number }}"
       state: started
       ports:
         - "8000:80"
