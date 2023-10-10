@@ -3,13 +3,13 @@
   hosts: ansible_client
   # become: true
   # vars:
-  #   jenkins_build_number: "{{ jenkins_build_number | default('latest') }}"
-  #   docker_image_name: aks0207/ansible-nginx
-  #   docker_image_tag: "{{ jenkins_build_number }}"
+    jenkins_build_number: "{{ jenkins_build_number | default('latest') }}"
+    docker_image_name: aks0207/ansible-nginx
+    docker_image_tag: "{{ jenkins_build_number }}"
   tasks:
   - name: pull an image
     docker_image:
-      name: aks0207/ansible-nginx:{{ jenkins_build_number }}
+      name: "{{ docker_image_name }}:{{ jenkins_build_number }}"
       source: pull
   - name: Create volume
     docker_volume:
