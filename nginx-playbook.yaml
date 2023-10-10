@@ -2,6 +2,10 @@
 - name: Deploy Docker container
   hosts: ansible_client
   # become: true
+  vars:
+    jenkins_build_number: "{{ jenkins_build_number | default('latest') }}"
+    docker_image_name: aks0207/ansible-nginx
+    docker_image_tag: "{{ jenkins_build_number }}"
   tasks:
   - name: pull an image
     docker_image:
@@ -14,7 +18,7 @@
   - name: Run nginx Docker container
     docker_container:
       name: nginx
-      image: aks0207/ansible-nginx:12
+      image: "{{ docker_image_name }}:{{ docker_image_tag }}"
       state: started
       ports:
         - "8000:80"
