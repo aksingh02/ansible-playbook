@@ -9,7 +9,7 @@
   tasks:
   - name: pull an image
     docker_image:
-      name: aks0207/ansible-nginx:"{{ jenkins_build_number }}"
+      name: aks0207/ansible-nginx:{{ jenkins_build_number }}
       source: pull
   - name: Create volume
     docker_volume:
