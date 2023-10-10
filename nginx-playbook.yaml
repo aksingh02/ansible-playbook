@@ -10,7 +10,7 @@
   - name: pull an image
     docker_image:
       name: "{{ docker_image_name }}:{{ docker_image_tag }}"
-      state: present
+      source: pull
   - name: Create volume
     docker_volume:
       name: nginx-data
