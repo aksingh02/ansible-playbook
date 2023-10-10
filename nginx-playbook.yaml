@@ -2,7 +2,7 @@
 - name: Deploy Docker container
   hosts: ansible_client
   # become: true
-  # vars:
+  vars:
     jenkins_build_number: "{{ jenkins_build_number | default('latest') }}"
     docker_image_name: aks0207/ansible-nginx
     docker_image_tag: "{{ jenkins_build_number }}"
