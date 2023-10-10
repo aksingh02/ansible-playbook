@@ -9,7 +9,7 @@
   tasks:
   - name: pull an image
     docker_image:
-      name: "{{ docker_image_name }}:{{ jenkins_build_number }}"
+      name: "{{ docker_image_name }}:{{ docker_image_tag }}"
       source: pull
   - name: Create volume
     docker_volume:
@@ -18,7 +18,7 @@
   - name: Run nginx Docker container
     docker_container:
       name: nginx
-      image: "{{ docker_image_name }}:{{ jenkins_build_number }}"
+      image: "{{ docker_image_name }}:{{ docker_image_tag }}"
       state: started
       ports:
         - "8000:80"
